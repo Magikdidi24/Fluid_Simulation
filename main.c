@@ -316,7 +316,7 @@ int main(void){
     SDL_Event event;
     int running = 1;
     int color = 0;
-    int pression = true;
+    int pression = false;
 
     while (running){
         while (SDL_PollEvent(&event)){
@@ -366,6 +366,8 @@ int main(void){
                     case SDLK_L: color = 18; break; // bromine
 
                     case SDLK_M: color = 19; break; // mercury
+
+                    case SDLK_P: pression = !pression; break; // pressure view
                 }
             }
         }

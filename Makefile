@@ -13,7 +13,7 @@ TARGET  := main
 SRCS    := $(wildcard *.c)
 OBJS    := $(SRCS:.c=.o)
 
-.PHONY: all clean run
+.PHONY: all clean run test
 
 all: $(TARGET)
 
@@ -26,5 +26,11 @@ $(TARGET): $(OBJS)
 run: $(TARGET)
 	./$(TARGET)
 
+test: tests/test_sim
+	./tests/test_sim
+
+tests/test_sim: tests/test_sim.c main.c
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
+
 clean:
-	rm -f $(OBJS) $(TARGET) $(TARGET).exe
+	rm -f $(OBJS) $(TARGET) $(TARGET).exe tests/test_sim tests/test_sim.exe

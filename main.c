@@ -289,6 +289,7 @@ void mix_step(Cell env[]){
     }
 }
 
+#ifndef NO_MAIN // tests/test_sim.c includes this file for the simulation functions
 int main(void){
     if (!SDL_Init(SDL_INIT_VIDEO)){
         SDL_Log("Couldn't initialize SDL: %s", SDL_GetError());
@@ -391,3 +392,4 @@ int main(void){
     SDL_Quit();
     return 0;
 }
+#endif

@@ -1,0 +1,6 @@
+# build outputs
+main
+main.exe
+*.o
+tests/test_sim
+tests/test_sim.exe

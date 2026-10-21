@@ -323,8 +323,8 @@ int main(void){
             if (event.type == SDL_EVENT_QUIT) running = 0;
 
             if (event.type == SDL_EVENT_MOUSE_MOTION){
-                int cell_x = (int)event.motion.x / CELL_SIZE;
-                int cell_y = (int)event.motion.y / CELL_SIZE;
+                int cell_x = (int)SDL_floorf(event.motion.x / CELL_SIZE);
+                int cell_y = (int)SDL_floorf(event.motion.y / CELL_SIZE);
                 if (cell_x >= 0 && cell_x < COLS && cell_y >= 0 && cell_y < ROWS){
                     int idx = cell_y * COLS + cell_x;
                     if (event.motion.state & SDL_BUTTON_LMASK){
